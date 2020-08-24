@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 
+import { Link } from "react-router-dom";
+
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
@@ -16,7 +18,29 @@ const Menu = styled.div`
   position: fixed;
   z-index: 2;
   background-color: grey;
+  width: 10%;
+  border-radius: 0px 0px 5px 5px;
+`;
+
+const MenuList = styled.ul`
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+`;
+
+const MenuItem = styled.li`
   padding: 20px;
+  &:hover {
+    background-color: #637bff;
+    color: white;
+    border-radius: 0px 0px 5px 5px;
+  }
+`;
+
+const StyledLink = styled(Link)`
+  color: inherit;
+  text-decoration: none;
 `;
 
 const Appbar = () => {
@@ -36,7 +60,16 @@ const Appbar = () => {
           <AppBarTitle variant="h6">Weather App</AppBarTitle>
         </Toolbar>
       </AppBar>
-      <Menu hidden={hideMenu}>sdopvnsdpivn0</Menu>
+      <Menu hidden={hideMenu}>
+        <MenuList>
+          <StyledLink to="/" onClick={onMenuClick}>
+            <MenuItem>Home</MenuItem>
+          </StyledLink>
+          <StyledLink to="/info" onClick={onMenuClick}>
+            <MenuItem>Info</MenuItem>
+          </StyledLink>
+        </MenuList>
+      </Menu>
     </div>
   );
 };

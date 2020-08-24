@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./pages/home";
-import Guide from "./pages/guide";
+import Info from "./pages/info";
 import AppBar from "./components/appbar";
 import "./App.css";
 
@@ -14,8 +14,8 @@ function App() {
           <Route exact path="/">
             <Home />
           </Route>
-          <Route path="/guide">
-            <Guide />
+          <Route path="/info">
+            <Info />
           </Route>
         </Switch>
       </div>
