@@ -14,8 +14,6 @@ const InfoHeader = styled(Typography)`
   padding: 5px;
 `;
 
-const ListItem = styled.li``;
-
 const Info = () => {
   return (
     <Box p={3}>
@@ -40,19 +38,22 @@ const Info = () => {
         <Typography color="primary" variant="h5">
           So, How do I use it?
         </Typography>
+        <Typography variant="h6">
+          It's as simple as typing the city's name
+          <br />
+          and then clicking on search button
+          <br />
+          (or pressing the search button if your use a touch screen device)
+        </Typography>
       </Box>
-      <div>
-        <ul>
-          <li>Step 1</li>
-          <div>words words words words words </div>
-          <li>Step 2</li>
-          <div>words words words words words </div>
-          <li>Step 3</li>
-          <div>words words words words words </div>
-          <li>Step 4</li>
-          <div>words words words words words </div>
-        </ul>
-      </div>
+      {/* <Box p={2}>
+        <Typography>
+          Would you like to see how its been made?
+          <br />
+          Check out my repository!
+        </Typography>
+        
+      </Box> */}
     </Box>
   );
 };
