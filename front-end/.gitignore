@@ -10,7 +10,7 @@
 
 # production
 /build
-apiKey.env
+.env
 
 # misc
 .DS_Store

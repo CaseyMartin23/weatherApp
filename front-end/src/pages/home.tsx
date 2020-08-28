@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 
-import path from "path"
-
 import Box from "@material-ui/core/Box";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
@@ -16,16 +14,11 @@ const SearchButton = styled(Button)`
   }
 `;
 
-const apiKey = () => {
-
-  return ""
-};
-
-console.log("apiKey->>", apiKey);
-
 const Home = () => {
   const [userInput, setUserInput] = useState("");
   const [currentWeather, setCurrentWeather] = useState({});
+
+  const apiKey = process.env.REACT_APP_API_KEY;
 
   const onSearch = (e: any) => {
     const searchedValue = e.target.value.toLowerCase();
@@ -47,6 +40,7 @@ const Home = () => {
 
   return (
     <Box p={3}>
+      {console.log("apiKey->>", apiKey)}
       {console.log("currentWeather->>", currentWeather)}
       <Typography variant="h5" color="primary">
         Looking for the current weather in a city?
