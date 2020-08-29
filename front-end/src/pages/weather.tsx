@@ -3,11 +3,30 @@ import React, { useState } from "react";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 
-import {
-  FormField,
-  StyledButton,
-  StyledPaper,
-} from "../components/styledComponents";
+import styled from "styled-components";
+import { StyledButton, StyledPaper } from "../components/styledComponents";
+
+const FormField = styled.div`
+  bottom: 0px;
+  padding: 5px;
+`;
+
+const SearchBar = styled.input`
+  width: 240px;
+  height: 24.5px;
+  margin: 0px;
+  padding: 5px;
+  border: 1px solid lightgrey;
+  border-radius: 4px 0px 0px 4px;
+  vertical-align: bottom;
+  text-align: center;
+`;
+
+const SearchButton = styled(StyledButton)`
+  width: 80px;
+  margin: 0px;
+  border-radius: 0px 4px 4px 0px;
+`;
 
 type CurrentWeatherType = {
   base: string;
@@ -85,10 +104,6 @@ const Weather = () => {
   return (
     <Box p={3}>
       <div id="SearchBarAndHearder">
-        <div style={{ display: "inline-flex", margin: "5px" }}>
-          <StyledButton style={{ margin: "5px" }}>Current Weather</StyledButton>
-          <StyledButton style={{ margin: "5px" }}>5 Day Forecast</StyledButton>
-        </div>
         <Typography variant="h5" color="primary">
           Looking for the current weather in a city?
         </Typography>
@@ -98,8 +113,16 @@ const Weather = () => {
         <Box p={3}>
           <form onSubmit={onSubmit}>
             <FormField>
-              <input placeholder="Search..." onChange={onSearch} />
-              <StyledButton type="submit">Search</StyledButton>
+              <SearchBar placeholder="Search..." onChange={onSearch} />
+              <SearchButton type="submit">Search</SearchButton>
+            </FormField>
+            <FormField>
+              <StyledButton style={{ margin: "5px" }}>
+                Current Weather
+              </StyledButton>
+              <StyledButton style={{ margin: "5px" }}>
+                5 Day Forecast
+              </StyledButton>
             </FormField>
           </form>
         </Box>

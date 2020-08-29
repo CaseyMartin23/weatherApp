@@ -3,7 +3,12 @@ import React from "react";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 
-import { StyledPaper, InfoHeader } from "../components/styledComponents";
+import styled from "styled-components";
+import { StyledPaper } from "../components/styledComponents";
+
+const InfoHeader = styled(Typography)`
+  padding: 5px;
+`;
 
 const Help = () => {
   return (

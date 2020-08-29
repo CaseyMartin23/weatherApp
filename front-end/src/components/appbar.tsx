@@ -18,8 +18,8 @@ const Menu = styled.div`
   position: fixed;
   z-index: 2;
   background-color: grey;
-  width: 15%;
-  border-radius: 0px 0px 5px 5px;
+  width: 10%;
+  border-radius: 0px 0px 8px 8px;
 `;
 
 const MenuList = styled.ul`
@@ -30,11 +30,11 @@ const MenuList = styled.ul`
 `;
 
 const MenuItem = styled.li`
-  padding: 15px;
+  padding: 10px;
   &:hover {
     background-color: #637bff;
     color: white;
-    border-radius: 0px 0px 5px 5px;
+    border-radius: 0px 0px 8px 8px;
   }
 `;
 
