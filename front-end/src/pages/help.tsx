@@ -1,20 +1,11 @@
 import React from "react";
 
 import Box from "@material-ui/core/Box";
-import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 
-import styled from "styled-components";
+import { StyledPaper, InfoHeader } from "../components/styledComponents";
 
-const StyledPaper = styled(Paper)`
-  background-color: lightblue;
-`;
-
-const InfoHeader = styled(Typography)`
-  padding: 5px;
-`;
-
-const Info = () => {
+const Help = () => {
   return (
     <Box p={3}>
       <StyledPaper>
@@ -58,4 +49,4 @@ const Info = () => {
   );
 };
 
-export default Info;
+export default Help;

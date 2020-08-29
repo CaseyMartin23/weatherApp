@@ -18,7 +18,7 @@ const Menu = styled.div`
   position: fixed;
   z-index: 2;
   background-color: grey;
-  width: 10%;
+  width: 15%;
   border-radius: 0px 0px 5px 5px;
 `;
 
@@ -26,11 +26,11 @@ const MenuList = styled.ul`
   list-style-type: none;
   margin: 0;
   padding: 0;
-  text-align: left;
+  text-align: center;
 `;
 
 const MenuItem = styled.li`
-  padding: 20px;
+  padding: 15px;
   &:hover {
     background-color: #637bff;
     color: white;
@@ -63,10 +63,10 @@ const Appbar = () => {
       <Menu hidden={hideMenu}>
         <MenuList>
           <StyledLink to="/" onClick={onMenuClick}>
-            <MenuItem>Home</MenuItem>
+            <MenuItem>Weather</MenuItem>
           </StyledLink>
           <StyledLink to="/info" onClick={onMenuClick}>
-            <MenuItem>Info</MenuItem>
+            <MenuItem>Help</MenuItem>
           </StyledLink>
         </MenuList>
       </Menu>

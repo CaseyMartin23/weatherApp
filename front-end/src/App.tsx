@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Home from "./pages/home";
-import Info from "./pages/info";
+import Weather from "./pages/weather";
+import Help from "./pages/help";
 import AppBar from "./components/appbar";
 import "./App.css";
 
@@ -12,10 +12,10 @@ function App() {
         <AppBar />
         <Switch>
           <Route exact path="/">
-            <Home />
+            <Weather />
           </Route>
-          <Route path="/info">
-            <Info />
+          <Route path="/help">
+            <Help />
           </Route>
         </Switch>
       </div>
