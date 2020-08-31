@@ -6,27 +6,24 @@ import Typography from "@material-ui/core/Typography";
 import styled from "styled-components";
 import { StyledButton, StyledPaper } from "../components/styledComponents";
 
-const FormField = styled.div`
+type FormFieldProps = {
+  border?: boolean;
+};
+
+const FormField = styled.div<FormFieldProps>`
+  margin: auto;
   bottom: 0px;
   padding: 5px;
 `;
 
 const SearchBar = styled.input`
-  width: 240px;
-  height: 24.5px;
-  margin: 0px;
-  padding: 5px;
-  border: 1px solid lightgrey;
-  border-radius: 4px 0px 0px 4px;
-  vertical-align: bottom;
+  height: 34.5px;
+  /* vertical-align: bottom; */
   text-align: center;
+  margin: 5px;
 `;
 
-const SearchButton = styled(StyledButton)`
-  width: 80px;
-  margin: 0px;
-  border-radius: 0px 4px 4px 0px;
-`;
+const SearchButton = styled(StyledButton)``;
 
 type CurrentWeatherType = {
   base: string;
@@ -116,13 +113,9 @@ const Weather = () => {
               <SearchBar placeholder="Search..." onChange={onSearch} />
               <SearchButton type="submit">Search</SearchButton>
             </FormField>
-            <FormField>
-              <StyledButton style={{ margin: "5px" }}>
-                Current Weather
-              </StyledButton>
-              <StyledButton style={{ margin: "5px" }}>
-                5 Day Forecast
-              </StyledButton>
+            <FormField border={true}>
+              <StyledButton style={{ margin: "5px" }}>Current</StyledButton>
+              <StyledButton style={{ margin: "5px" }}>5 Days</StyledButton>
             </FormField>
           </form>
         </Box>

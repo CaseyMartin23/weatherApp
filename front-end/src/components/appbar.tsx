@@ -65,7 +65,7 @@ const Appbar = () => {
           <StyledLink to="/" onClick={onMenuClick}>
             <MenuItem>Weather</MenuItem>
           </StyledLink>
-          <StyledLink to="/info" onClick={onMenuClick}>
+          <StyledLink to="/help" onClick={onMenuClick}>
             <MenuItem>Help</MenuItem>
           </StyledLink>
         </MenuList>
