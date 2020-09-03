@@ -1,9 +1,19 @@
 import React from "react";
 
-type FiveDayForecastProps = {};
+import { FiveDayForecastType } from "./weatherTypes";
 
-const FiveDayForecast: React.FC<FiveDayForecastProps> = () => {
-  return <div></div>;
+type FiveDayForecastProps = {
+  fiveDayForecast: FiveDayForecastType;
+};
+
+const FiveDayForecast: React.FC<FiveDayForecastProps> = ({
+  fiveDayForecast,
+}) => {
+  return (
+    <div>
+      <span>{fiveDayForecast.city.name}</span>
+    </div>
+  );
 };
 
 export default FiveDayForecast;
