@@ -8,7 +8,7 @@ import {
   FiveDayForecastType,
 } from "../components/weatherTypes";
 
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import { StyledButton, StyledPaper } from "../components/styledComponents";
 
 import CurrentWeather from "../components/currentWeather";
@@ -18,16 +18,13 @@ type FormFieldProps = {
   border?: boolean;
 };
 
-const sliceToTop = keyframes`
-  from {
-    transfrom: none;
-  }
-  to {
-    transfrom: translateY(100px);
+const AnimatedForm = styled.div`
+  top: 60px;
+  transition: transform 2s;
+  &:focus-within {
+    transform: translateY(-100px);
   }
 `;
-
-const disappear = keyframes``;
 
 const FormField = styled.div<FormFieldProps>`
   margin: auto;
@@ -138,7 +135,7 @@ const Weather = () => {
           Look no further!
         </Typography>
         <Box p={3}>
-          <form onSubmit={onSubmit}>
+          <AnimatedForm onSubmit={onSubmit}>
             <FormField>
               <SearchBar placeholder="Search..." onChange={onSearch} />
               <StyledButton type="submit">Search</StyledButton>
@@ -159,7 +156,7 @@ const Weather = () => {
                 5 Days
               </ForecastButton>
             </FormField>
-          </form>
+          </AnimatedForm>
         </Box>
       </div>
       {searchError && (
