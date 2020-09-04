@@ -9,7 +9,7 @@ import {
 } from "../components/weatherTypes";
 
 import styled from "styled-components";
-import { StyledButton, StyledPaper } from "../components/styledComponents";
+import { StyledButton } from "../components/styledComponents";
 
 import CurrentWeather from "../components/currentWeather";
 import FiveDayForecast from "../components/fiveDayForecast";
@@ -17,14 +17,6 @@ import FiveDayForecast from "../components/fiveDayForecast";
 type FormFieldProps = {
   border?: boolean;
 };
-
-const AnimatedForm = styled.div`
-  top: 60px;
-  transition: transform 2s;
-  &:focus-within {
-    transform: translateY(-100px);
-  }
-`;
 
 const FormField = styled.div<FormFieldProps>`
   margin: auto;
@@ -54,7 +46,7 @@ const Weather = () => {
   const [fiveDayForecast, setFiveDayForecast] = useState<
     FiveDayForecastType | undefined
   >();
-  const [searchError, setSearchError] = useState<Error | undefined>(undefined);
+  const [searchError, setSearchError] = useState<Error | undefined>();
   const [isCurrentWeatherForecast, setIsCurrentWeatherForecast] = useState(
     true
   );
@@ -127,15 +119,17 @@ const Weather = () => {
 
   return (
     <Box p={3}>
-      <div id="SearchBarAndHearder">
-        <Typography variant="h5" color="primary">
-          Looking for the current weather in a city?
-        </Typography>
-        <Typography variant="h4" color="primary">
-          Look no further!
-        </Typography>
+      <div>
+        <div id="header">
+          <Typography variant="h5" color="primary">
+            Looking for the current weather in a city?
+          </Typography>
+          <Typography variant="h4" color="primary">
+            Look no further!
+          </Typography>
+        </div>
         <Box p={3}>
-          <AnimatedForm onSubmit={onSubmit}>
+          <form onSubmit={onSubmit}>
             <FormField>
               <SearchBar placeholder="Search..." onChange={onSearch} />
               <StyledButton type="submit">Search</StyledButton>
@@ -156,29 +150,30 @@ const Weather = () => {
                 5 Days
               </ForecastButton>
             </FormField>
-          </AnimatedForm>
+          </form>
+          {searchError && (
+            <div>
+              <Typography color="error" variant="h5">
+                {`${searchError.name}:
+            ${searchError.message}`}
+              </Typography>
+              <br />
+              <Typography color="error" variant="h4">
+                Please check your spelling! <br />
+                If the problem still exists please contact me via email if
+                possible.
+              </Typography>
+            </div>
+          )}
+          {!searchError && isCurrentWeatherForecast && currentWeather && (
+            <CurrentWeather currentWeather={currentWeather} />
+          )}
+
+          {!searchError && !isCurrentWeatherForecast && fiveDayForecast && (
+            <FiveDayForecast fiveDayForecast={fiveDayForecast} />
+          )}
         </Box>
       </div>
-      {searchError && (
-        <div>
-          <Typography color="error" variant="h5">
-            {`${searchError.name}:
-            ${searchError.message}`}
-          </Typography>
-          <br />
-          <Typography color="error" variant="h4">
-            Please check your spelling! <br />
-            If the problem still exists please contact me via email if possible.
-          </Typography>
-        </div>
-      )}
-      {!searchError && isCurrentWeatherForecast && currentWeather && (
-        <CurrentWeather currentWeather={currentWeather} />
-      )}
-
-      {!searchError && !isCurrentWeatherForecast && fiveDayForecast && (
-        <FiveDayForecast fiveDayForecast={fiveDayForecast} />
-      )}
     </Box>
   );
 };
